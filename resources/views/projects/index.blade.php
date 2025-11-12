@@ -1,3 +1,3 @@
-<x-site-layout>
-    
+<x-site-layout title='Projects'>
+
 </x-site-layout>
