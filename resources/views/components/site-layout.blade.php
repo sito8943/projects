@@ -9,21 +9,22 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <header class="bg-red-200 rounded-3xl px-4 py-2 flex items-center justify-between m-4 sticky top-2">
+    <header class="bg-red-400 rounded-3xl px-4 py-2 flex items-center justify-between mx-9 my-4 sticky top-2">
         <h1 class="text-xl">
-            <a href="/">
+            <a href="/" class="text-white">
                 Proctique
             </a>
         </h1>
         <nav>
-            <ul class="flex gap-4 items-center justify-end">
+            <ul class="flex gap-2 items-center justify-end">
                 <li>
-                    <a href="/">
+                    <a href="/" class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
                         Home
                     </a>
                 </li>
                 <li>
                     <a href="/projects">
+                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
                         Projects
                     </a>
                 </li>
