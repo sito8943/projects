@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         Tag::factory(10)->create();
+        Review::factory(10)->create();
         Project::factory(10)->create();
     }
 }

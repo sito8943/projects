@@ -20,3 +20,9 @@ class Project extends Model
     {
         return $this->belongsTo(Tag::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+}
