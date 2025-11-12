@@ -14,9 +14,9 @@
             Proctique
         </h1>
         <nav>
-            <ul>
+            <ul class="flex gap-4 items-center justify-end">
                 <li>
-                    <a>
+                    <a href="/">
                         Home
                     </a>
                 </li>
