@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Project>
@@ -19,7 +20,7 @@ class ProjectFactory extends Factory
         return [
             'name' => fake()->sentence(8),
             'description' => fake()->paragraph(5),
-            'author_id' => fake()->numberBetween(0, 9)
+            'author_id' => fake()->numberBetween(0, 9),
         ];
     }
 }

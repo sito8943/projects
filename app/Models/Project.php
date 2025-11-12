@@ -13,6 +13,6 @@ class Project extends Model
     // Model relations
     public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 }
