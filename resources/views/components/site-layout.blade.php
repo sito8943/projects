@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/projects">
+                    <a href="/projects"
                         class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
                         Projects
                     </a>
@@ -31,8 +31,14 @@
             </ul>
         </nav>
     </header>
-    <main class="flex-1 h-full px-4 pb-4">
-        {{ $slot }}
+    <main class="flex-1 h-full px-10 pb-4">
+        <h2 class="text-3xl font-bold mb-4">
+            {{ $title }}
+        </h2>
+
+        <section>
+            {{ $slot }}
+        </section>
     </main>
     <footer class="bg-red-400 w-full p-8">
         <div>
