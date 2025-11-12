@@ -1,9 +1,9 @@
 ## Data
-- Users (id, name, password, projects, reviews)
-- Projects (id, user, name, description, image, tags, reviews)
-- Tags (id, name)
-- Reviews (id, user, project, comment, stars)
-- Reports (id, user, review, reason)
+- Users (id, name, password, projects, reviews, create_at, updated_at)
+- Projects (id, user, name, description, image, tags, reviews, create_at, updated_at)
+- Tags (id, name, create_at, updated_at)
+- Reviews (id, user, project, comment, stars, create_at, updated_at)
+- Reports (id, user, review, reason, create_at, updated_at)
 
 ## Functionality
 - User can log in
