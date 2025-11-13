@@ -11,6 +11,8 @@ Route::get('projects/{project}', [ProjectController::class, 'show'])->name('proj
 Route::get('tags', [TagController::class, 'index'])->name('tag.index');
 Route::post('tags', [TagController::class, 'store'])->name('tag.store');
 Route::get('tags/create', [TagController::class, 'create'])->name('tag.create');
+Route::get('tags/{tag}/edit', [TagController::class, 'edit'])->name('tag.edit');
+Route::put('tags/{tag}', [TagController::class, 'update'])->name('tag.update');
 Route::get('tags/{tag}', [TagController::class, 'show'])->name('tag.show');
 
 Route::get('/dashboard', function () {
