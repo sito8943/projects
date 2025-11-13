@@ -16,9 +16,9 @@ class Project extends Model
         return $this->belongsTo(User::class, 'author_id');
     }
 
-    public function tag()
+    public function tags()
     {
-        return $this->belongsTo(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function reviews()

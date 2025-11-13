@@ -23,6 +23,18 @@ class DatabaseSeeder extends Seeder
         Tag::factory(10)->create();
         Report::factory(10)->create();
         Review::factory(10)->create();
-        Project::factory(10)->create();
+        $projects = Project::factory(10)->create();
+
+        // Associate Projects with Tags
+        $projects->each(function ($project) {
+            $nr_tags = random_int(0, 7);
+            $tag_list = [];
+
+            for ($i = 0; $i < $nr_tags; $i++) {
+                $tag_list[] = random_int(0, 7);
+            }
+
+            $project->tags()->attach($tag_list);
+        });
     }
 }

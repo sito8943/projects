@@ -13,6 +13,6 @@ class Tag extends Model
     // Model relations
     public function projects()
     {
-        return $this->hasMany(Project::class);
+        return $this->belongsToMany(Project::class);
     }
 }
