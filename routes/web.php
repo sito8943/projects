@@ -14,6 +14,8 @@ Route::get('tags/create', [TagController::class, 'create'])->name('tag.create');
 Route::get('tags/{tag}/edit', [TagController::class, 'edit'])->name('tag.edit');
 Route::put('tags/{tag}', [TagController::class, 'update'])->name('tag.update');
 Route::get('tags/{tag}', [TagController::class, 'show'])->name('tag.show');
+Route::delete('tags/{id}/destroy', [TagController::class, 'destroy'])->name('tag.destroy');
+
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
