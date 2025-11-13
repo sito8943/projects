@@ -20,7 +20,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
-        Tag::factory(10)->create();
+
+        Tag::create(['name' => "Coding Tool"]);
+        Tag::create(['name' => "Library"]);
+        Tag::create(['name' => "Framework"]);
+        Tag::create(['name' => "Documentation"]);
+        Tag::create(['name' => "Editor"]);
+        Tag::create(['name' => "Editor Extension"]);
+        Tag::create(['name' => "Browser Extension"]);
+        Tag::create(['name' => "Productivity"]);
+
+
         Report::factory(10)->create();
         Review::factory(10)->create();
         $projects = Project::factory(10)->create();
