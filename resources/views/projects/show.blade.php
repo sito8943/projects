@@ -9,7 +9,7 @@
         <ul class="flex gap-4 items-center justify-start">
             @foreach ($project->tags as $tag)
                 <li>
-                    <a href="/projects?tag={{ $tag->id }}" class="px-4 py-2 text-xs bg-red-400 hover:bg-red-300 text-white rounded-full">
+                    <a href="/tags/{{ $tag->id }}" class="px-4 py-2 text-xs bg-gray-200 hover:bg-red-400 hover:text-white rounded-full">
                         {{ $tag->name }}
                     </a>
                 </li>

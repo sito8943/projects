@@ -9,6 +9,7 @@ Route::get('projects', [ProjectController::class, 'index'])->name('projects.inde
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::get('tags', [TagController::class, 'index'])->name('tag.index');
+Route::get('tags/{tag}', [TagController::class, 'show'])->name('tag.show');
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
