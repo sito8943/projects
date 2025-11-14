@@ -1,4 +1,4 @@
-<x-site-layout title="Project details">
+<x-site-layout title="Project details" :showSidebar="false">
     <div class="flex flex-col gap-4 items-start justify-start">
         <h3 class="font-bold text-6xl">{{ $project->name }}</h3>
         <x-author-layout :author="$project->author"></x-author-layout>

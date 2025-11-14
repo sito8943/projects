@@ -10,7 +10,7 @@
 
 <body class="flex flex-col min-h-screen">
     <header
-        class="bg-red-400/70 backdrop-blur-sm rounded-3xl m-auto w-full max-w-[960px] px-4 py-2 flex items-center justify-between my-4 sticky top-2">
+        class="bg-red-400/70 backdrop-blur-sm rounded-3xl m-auto w-full max-w-[1100px] px-4 py-2 flex items-center justify-between my-4 sticky top-2">
         <h1 class="text-xl poppins">
             <a href="/" class="text-white">
                 Proctique
@@ -38,23 +38,28 @@
             </ul>
         </nav>
     </header>
-    <main class="flex-1 h-full m-auto w-full max-w-[960px]  pb-4">
-        <div class="flex items-center gap-2 mb-4">
-            @if ($title !== 'Proctique')
-                <button type="button" onclick="history.go(-1)"
-                    class="rounded-full hover:bg-red-400/40 p-2 transition hover:text-white">
-                    <x-fas-chevron-left class="w-4 h-4" />
-                </button>
-            @endif
-            <h2 class="text-3xl font-bold">
-                {{ $title }}
-            </h2>
-        </div>
+    <div class="flex align-start justify-start gap-5 h-full m-auto w-full max-w-[1100px] pb-4">
+        @if ($showSidebar)
+            <aside class="w-80 min-h-40 bg-gray-100 rounded-lg"></aside>
+        @endif
+        <main class="flex-1">
+            <div class="flex items-center gap-2 mb-4">
+                @if ($title !== 'Proctique')
+                    <button type="button" onclick="history.go(-1)"
+                        class="rounded-full hover:bg-red-400/40 p-2 transition hover:text-white">
+                        <x-fas-chevron-left class="w-4 h-4" />
+                    </button>
+                @endif
+                <h2 class="text-3xl font-bold">
+                    {{ $title }}
+                </h2>
+            </div>
 
-        <section>
-            {{ $slot }}
-        </section>
-    </main>
+            <section>
+                {{ $slot }}
+            </section>
+        </main>
+    </div>
     <footer class="bg-red-400 w-full p-8">
         <div>
             <p class="text-3xl text-white">
