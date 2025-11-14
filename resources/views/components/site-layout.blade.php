@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
     <title>{{ $title }}</title>
 </head>
 
@@ -30,15 +31,28 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/tags"
+                    <a href="/authors"
                         class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
-                        Tags
+                        Authors
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/sign-in"
+                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
+                        Sign in
+                    </a>
+                </li>
+                <li>
+                    <a href="/sign-up"
+                        class="transition rounded-3xl px-4 py-1 hover:text-white hover:bg-red-600 text-red-400 bg-white">
+                        Sign up
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
-    <div class="flex align-start justify-start gap-5 h-full m-auto w-full max-w-[1100px] pb-4">
+    <div class="flex align-start justify-start gap-5 h-full flex-1 mx-auto w-full max-w-[1100px] pb-4">
         @if ($showSidebar)
             <aside class="w-80 min-h-40 bg-gray-100 rounded-lg"></aside>
         @endif
