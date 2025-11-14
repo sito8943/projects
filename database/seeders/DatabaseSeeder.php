@@ -21,14 +21,20 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        Tag::create(['name' => "Coding Tool"]);
-        Tag::create(['name' => "Library"]);
-        Tag::create(['name' => "Framework"]);
-        Tag::create(['name' => "Documentation"]);
-        Tag::create(['name' => "Editor"]);
-        Tag::create(['name' => "Editor Extension"]);
-        Tag::create(['name' => "Browser Extension"]);
-        Tag::create(['name' => "Productivity"]);
+        $tags = [
+            ['name' => "Coding Tool", 'color' => "#4F46E5"],
+            ['name' => "Library", 'color' => "#0EA5E9"],
+            ['name' => "Framework", 'color' => "#10B981"],
+            ['name' => "Documentation", 'color' => "#F59E0B"],
+            ['name' => "Editor", 'color' => "#EC4899"],
+            ['name' => "Editor Extension", 'color' => "#8B5CF6"],
+            ['name' => "Browser Extension", 'color' => "#3B82F6"],
+            ['name' => "Productivity", 'color' => "#EF4444"],
+        ];
+
+        foreach ($tags as $tag) {
+            Tag::create($tag);
+        }
 
 
         Report::factory(10)->create();
