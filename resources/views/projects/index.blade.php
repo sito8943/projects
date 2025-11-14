@@ -2,7 +2,7 @@
     <ul class="grid gap-10">
         @foreach ($projects as $project)
             <li class="h-full">
-                <article class="h-full w-full flex flex-col gap-4">
+                <article class="h-full w-full flex flex-col gap-4 bg-slate-50 p-10 rounded-lg">
                     <a href="/projects/{{ $project->id }}" class="transition">
                         <h3 class="font-bold text-6xl">
                             {{ $project->name }}
