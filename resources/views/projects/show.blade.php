@@ -1,11 +1,7 @@
 <x-site-layout title="{{ $project->name }}">
     <div class="flex flex-col gap-4 items-start justify-start">
-        <p class="italic">
-            Publish by
-            <a href="/authors/{{ $project->author->id }}" class="transition text-red-400 hover:text-red-300">
-                {{ $project->author->name }}
-            </a>
-        </p>
+        <h3 class="font-bold text-6xl">{{ $project->name }}</h3>
+        <x-author-layout :author="$project->author"></x-author-layout>
         <x-tags-layout :tags="$project->tags"></x-tags-layout>
         <p>
             {{ $project->description }}
