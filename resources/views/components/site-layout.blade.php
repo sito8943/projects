@@ -83,8 +83,9 @@
     <div
         class="flex flex-col md:flex-row items-start justify-start gap-5 h-full flex-1 mx-auto w-full max-w-screen-xl px-4 pb-6">
         @if ($showSidebar)
-            <aside id="page-sidebar" class="hidden md:block w-full md:w-80 min-h-40 bg-gray-100 rounded-lg p-3 md:p-4">
-            </aside>
+            <x-sidebar>
+
+            </x-sidebar>
         @endif
 
         <main class="flex-1 w-full">
