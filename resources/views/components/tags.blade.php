@@ -1,4 +1,4 @@
-<ul class="flex flex-wrap gap-2 items-center justify-start">
+<ul class="flex flex-wrap @if ($orientation == 'vertical') flex-col @endif gap-2 items-center justify-start">
     @foreach ($tags as $tag)
         <li>
             <a href="/tags/{{ $tag->id }}" style="--tag-color: {{ $tag->color }};"
