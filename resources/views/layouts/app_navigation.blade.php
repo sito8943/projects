@@ -48,12 +48,12 @@
                         </x-breeze.dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('sign-out') }}">
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-breeze.dropdown-link :href="route('sign-out')" onclick="event.preventDefault();
+                            <x-breeze.dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Sign Out') }}
+                                {{ __('Log Out') }}
                             </x-breeze.dropdown-link>
                         </form>
                     </x-slot>
@@ -97,12 +97,13 @@
                 </x-breeze.responsive-nav-link>
 
                 <!-- Authentication -->
-                <form method="POST" action="{{ route('sign-out') }}">
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-breeze.responsive-nav-link :href="route('sign-out')" onclick="event.preventDefault();
+                    <x-breeze.responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Sign Out') }}
+                        {{ __('Log Out') }}
                     </x-breeze.responsive-nav-link>
                 </form>
             </div>

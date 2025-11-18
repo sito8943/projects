@@ -2,16 +2,16 @@
 
 use App\Models\User;
 
-test('sign-in screen can be rendered', function () {
-    $response = $this->get('/sign-in');
+test('login screen can be rendered', function () {
+    $response = $this->get('/login');
 
     $response->assertStatus(200);
 });
 
-test('users can authenticate using the sign-in screen', function () {
+test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();
 
-    $response = $this->post('/sign-in', [
+    $response = $this->post('/login', [
         'email' => $user->email,
         'password' => 'password',
     ]);
@@ -23,7 +23,7 @@ test('users can authenticate using the sign-in screen', function () {
 test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
-    $this->post('/sign-in', [
+    $this->post('/login', [
         'email' => $user->email,
         'password' => 'wrong-password',
     ]);
@@ -31,10 +31,10 @@ test('users can not authenticate with invalid password', function () {
     $this->assertGuest();
 });
 
-test('users can sign-out', function () {
+test('users can logout', function () {
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->post('/sign-out');
+    $response = $this->actingAs($user)->post('/logout');
 
     $this->assertGuest();
     $response->assertRedirect('/');
