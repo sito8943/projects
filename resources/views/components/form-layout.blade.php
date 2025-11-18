@@ -1,4 +1,4 @@
-<form method="POST" action="{{ $action }}" class="flex gap-4 flex-col">
+<form method="POST" action="{{ $action }}" class="flex gap-4 flex-col w-full">
     @csrf
     @method($method)
     {{ $slot }}
