@@ -16,7 +16,9 @@ class AdminProjectController extends Controller
 
     public function create()
     {
-        return view('admin.projects.create');
+
+        $users = User::all();
+        return view('admin.projects.create', compact('users'));
     }
 
     public function store(Request $request)
@@ -38,7 +40,8 @@ class AdminProjectController extends Controller
     public function edit(int $id)
     {
         $project = Project::find($id);
-        return view('admin.projects.edit', compact(['project']));
+        $users = User::all();
+        return view('admin.projects.edit', compact(['project', 'users']));
     }
 
     public function update(Request $request, int $id)
