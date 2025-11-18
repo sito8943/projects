@@ -2,12 +2,17 @@
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         @foreach ($projects as $project)
             <li class="h-full">
-                <div class="bg-gray-200 transition rounded-lg h-full p-4 flex items-center justify-between gap-2">
+                <div class="bg-gray-200 transition rounded-lg h-full p-4 flex items-start justify-between gap-2">
                     <div>
                         <h3 class="font-bold text-lg">{{ $project->name }}</h3>
-                        @if ($project->author)
-                            <p class="text-sm text-gray-600">by {{ $project->author->name }}</p>
-                        @endif
+                        <p class="text-sm text-gray-600">by {{ $project->author->name }}</p>
+
+                        <div class="flex flex-col gap-1 mt-2">
+                            <h4>
+                                Tags
+                            </h4>
+                            <x-tags :tags="$project->tags" />
+                        </div>
                     </div>
                     <ul class="flex gap-4 items-center justify-end">
                         <a href="/admin/projects/{{ $project->id }}/edit" class="hover:text-red-400" title="Edit">
@@ -26,4 +31,3 @@
         @endforeach
     </ul>
 </x-app-layout>
-
