@@ -6,7 +6,7 @@
         <x-author :author="$project->author" :date="$project->published_at"></x-author>
         <x-tags :tags="$project->tags"></x-tags>
         <p class="text-sm sm:text-base">
-            {{ $project->description }}
+            {{ $project->content }}
         </p>
     </div>
 </x-project-layout>

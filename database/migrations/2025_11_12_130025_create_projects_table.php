@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->text('header_image')->nullable();
             $table->text('leading')->nullable();
-            $table->text('description')->nullable();
+            $table->text('content')->nullable();
             $table->foreignId('author_id');
             $table->boolean("is_published")->default(false);
             $table->dateTime("published_at")->nullable();

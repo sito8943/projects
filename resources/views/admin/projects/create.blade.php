@@ -11,8 +11,8 @@
         </div>
 
         <div class="flex gap-4 items-start justify-start">
-            <label for="description" class="pt-2">Description</label>
-            <textarea id="description" name="description" class="border-2 border-gray-200 rounded-3xl px-4 py-2 w-full" rows="5" placeholder="Longer description">{{ old('description', '') }}</textarea>
+            <label for="content" class="pt-2">Content</label>
+            <textarea id="content" name="content" class="border-2 border-gray-200 rounded-3xl px-4 py-2 w-full" rows="5" placeholder="Longer content">{{ old('content', '') }}</textarea>
         </div>
 
         <div class="flex gap-4 items-center justify-start">
