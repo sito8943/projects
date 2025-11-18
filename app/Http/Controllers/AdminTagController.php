@@ -13,12 +13,6 @@ class AdminTagController extends Controller
         return view('admin.tags.index', compact('tags'));
     }
 
-    public function show(int $tagId)
-    {
-        $tag = Tag::find($tagId);
-        return view('admin.tags.show', compact(['tag']));
-    }
-
     public function create()
     {
         return view('admin.tags.create');
