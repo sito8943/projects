@@ -10,13 +10,14 @@ Route::get('projects', [ProjectController::class, 'index'])->name('projects.inde
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::resource('tags', TagController::class)->only(['index', 'show']);
-Route::resource('admin/tags', AdminTagController::class)->except(['show']);
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::resource('admin/tags', AdminTagController::class)->except(['show']);
+
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'destroy'])->name('profile.destroy');
