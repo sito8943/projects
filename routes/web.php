@@ -17,7 +17,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('admin/tags', AdminTagController::class)->except(['show']);
+    Route::resource('admin/tags', AdminTagController::class)->except(['show'])->middleware('is_admin');
     Route::resource('admin/projects', AdminProjectController::class)->except(['show']);
 
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
