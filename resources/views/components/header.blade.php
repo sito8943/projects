@@ -1,4 +1,4 @@
-<header class="m-auto w-full max-w-screen-xl px-4 my-4 sticky top-2">
+<header class="m-auto w-full max-w-screen-xl px-4 my-4 sticky top-2 z-10">
     <div class="bg-[#1b4b96]/70 backdrop-blur-sm rounded-md px-4 py-2 flex items-center justify-between">
         <h1 class="text-xl poppins">
             <a href="/" class="text-white">Proctique</a>
