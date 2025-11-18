@@ -14,7 +14,7 @@ class SiteLayout extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(string $title = 'Proctique', bool $showSidebar = true)
+    public function __construct(string $title, bool $showSidebar = false)
     {
         $this->title = $title;
         $this->showSidebar = $showSidebar;
