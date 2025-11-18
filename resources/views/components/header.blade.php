@@ -26,14 +26,12 @@
                     </li>
                 @else
                     <li>
-                        <a href="/sign-in"
-                            class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Sign
-                            in</a>
+                        <a href="/login"
+                            class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Login</a>
                     </li>
                     <li>
-                        <a href="/sign-up"
-                            class="transition rounded-3xl px-4 py-1 hover:text-white hover:bg-red-600 text-red-400 bg-white">Sign
-                            up</a>
+                        <a href="/register"
+                            class="transition rounded-3xl px-4 py-1 hover:text-white hover:bg-red-600 text-red-400 bg-white">Register</a>
                     </li>
                 @endif
             </ul>
