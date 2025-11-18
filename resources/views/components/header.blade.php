@@ -19,16 +19,23 @@
                     <a href="/authors"
                         class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Authors</a>
                 </li>
-                <li>
-                    <a href="/sign-in"
-                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Sign
-                        in</a>
-                </li>
-                <li>
-                    <a href="/sign-up"
-                        class="transition rounded-3xl px-4 py-1 hover:text-white hover:bg-red-600 text-red-400 bg-white">Sign
-                        up</a>
-                </li>
+                @if (auth()->user() != null)
+                    <li>
+                        <a href="/profile"> <img class="w-10 h-10 rounded-full" src="{{ auth()->user()->avatar }}"
+                                alt="{{ auth()->user()->name }}" /></a>
+                    </li>
+                @else
+                    <li>
+                        <a href="/sign-in"
+                            class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Sign
+                            in</a>
+                    </li>
+                    <li>
+                        <a href="/sign-up"
+                            class="transition rounded-3xl px-4 py-1 hover:text-white hover:bg-red-600 text-red-400 bg-white">Sign
+                            up</a>
+                    </li>
+                @endif
             </ul>
         </nav>
 
