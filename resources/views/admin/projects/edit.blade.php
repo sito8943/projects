@@ -1,4 +1,4 @@
-<x-app-layout title="Edit project #{{ $project->id }}">
+<x-app-layout title='Edit project with Id: {{ $project->id }}'>
     <x-form-layout method="PUT" action="/admin/projects/{{ $project->id }}">
         <x-text-input name="name" id="name" label="Name" :value="old('name', $project->name)" placeholder="Ex: Awesome Tool" />
 

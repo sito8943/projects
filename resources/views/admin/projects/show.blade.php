@@ -1,4 +1,4 @@
-<x-app-layout title="Project #{{ $project->id }}">
+<x-app-layout title='Project with Id {{ $project->id }}''>
     <div class="space-y-4">
         <div class="bg-white rounded-lg p-4 shadow">
             <h2 class="text-2xl font-semibold mb-2">{{ $project->name }}</h2>

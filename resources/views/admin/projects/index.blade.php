@@ -1,8 +1,4 @@
-<x-app-layout title='Projects'>
-    <div class="flex items-center justify-between mb-4">
-        <h2 class="text-xl font-semibold">All Projects</h2>
-        <a href="/admin/projects/create" class="rounded-3xl px-4 py-2 bg-red-400 text-white hover:bg-red-300">New Project</a>
-    </div>
+<x-app-layout title='All Projects' action="/admin/projects/create" button="New Project">
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         @foreach ($projects as $project)
             <li class="h-full">
