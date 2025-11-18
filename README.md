@@ -1,21 +1,70 @@
-## Data
-- Users (id, name, password, projects, reviews, create_at, updated_at)
-- Projects (id, user, name, description, image, tags, reviews, create_at, updated_at)
-- Tags (id, name, create_at, updated_at)
-- Reviews (id, user, project, comment, stars, create_at, updated_at)
-- Reports (id, user, review, reason, create_at, updated_at)
+<div align="center">
 
-## Functionality
-- User can log in
-- User can see details of a project from another user
-- User can manage his/hers projects
-- User can review (comment & stars) a project from another user
-- User can report a review
-- User can manage his/hers reviews
-- User can manage his/hers reports
-- Project belongs to a Tag
-- Admin can manage user
-- Admin can manage tags
-- Admin can manage reviews
-- Admin can manage all projects
-- Admin can manage all reports
+# Proctique
+
+Free project discovery platform for everyone.
+
+</div>
+
+## Overview
+
+Proctique is a Laravel 12 application where people can publish and discover projects. Users can browse projects by tags, view details, leave reviews (stars and comments), and report inappropriate reviews. Authenticated users can manage their own projects, reviews, and reports. Admins have moderation capabilities for tags and platform content.
+
+## Getting Started
+
+### Prerequisites
+- PHP 8.3+
+- Composer 2+
+- Node.js 18+ and npm
+- A database (MySQL/PostgreSQL) or SQLite
+
+### Clone
+```bash
+git clone https://github.com/sito8943/proctique.git proctique
+cd proctique
+```
+
+### Install & Configure
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+# Update .env with your DB credentials
+
+# Run migrations (with demo data)
+php artisan migrate --seed
+
+# Frontend assets
+npm install
+npm run build  # or: npm run dev
+```
+
+### Run the app
+```bash
+# PHP server (default: http://127.0.0.1:8000)
+php artisan serve
+
+# Optional: run everything together (server, queue, logs, Vite)
+composer dev
+```
+
+## Main Functionality
+- Authentication: user registration, login, email verification.
+- Project browsing: list projects and view project details.
+- Tags: filter/browse projects by tag; many‑to‑many relation.
+- Reviews: leave star ratings and comments on projects.
+- Reports: report inappropriate reviews for moderation.
+- User area: manage profile, own projects, reviews, and reports.
+- Admin area: manage tags and moderate platform content.
+
+## Data Model (high level)
+- Users: authors of projects, reviews, and reports.
+- Projects: authored by users, tagged, reviewed by others.
+- Tags: categorize projects (many‑to‑many with projects).
+- Reviews: comment + star rating on projects.
+- Reports: user‑submitted flags on reviews.
+
+---
+
+Made with Laravel 12, Vite, Tailwind, and Breeze.
