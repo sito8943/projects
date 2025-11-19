@@ -15,6 +15,14 @@
                         </div>
                     </div>
                     <ul class="flex gap-4 items-center justify-end">
+                        <a href="/admin/projects/{{ $project->id }}/toggle-is-published" class="hover:text-red-400"
+                            title="@if ($project->is_published) 'Unpublish' @else 'Publish' @endif">
+                            @if ($project->is_published)
+                                <x-fas-close class="w-4 h-4" />
+                            @else
+                                <x-fas-check class="w-4 h-4" />
+                            @endif
+                        </a>
                         <a href="/admin/projects/{{ $project->id }}/edit" class="hover:text-red-400" title="Edit">
                             <x-fas-edit class="w-4 h-4" />
                         </a>
