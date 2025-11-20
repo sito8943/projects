@@ -13,17 +13,19 @@ class TextInput extends Component
     public string $value = "";
     public string $placeholder = "";
     public string $id = "";
+    public bool $required;
 
     /**
      * Create a new component instance.
      */
-    public function __construct(string $name, string $label, string $id = "", string $placeholder = "", string $value = "")
+    public function __construct(string $name, string $label, string $id = "", string $placeholder = "", string $value = "", bool $required = false)
     {
         $this->name = $name;
         $this->label = $label;
         $this->value = $value;
         $this->placeholder = $placeholder;
         $this->id = $id;
+        $this->required = $required;
     }
 
     /**
