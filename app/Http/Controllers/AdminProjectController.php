@@ -31,6 +31,8 @@ class AdminProjectController extends Controller
             'content' => ['nullable', 'string']
         ]);
 
+        $path = '';
+
         if (
             $request->hasFile('header_image')
         ) {
@@ -62,9 +64,15 @@ class AdminProjectController extends Controller
             "published_at" => ['nullable']
         ]);
 
-        $project = Project::find($id);
+        if (
+            $request->hasFile('header_image')
+        ) {
+            $path = $request->file('header_image')->store('projects', 'public');
+            unset($validated['header_image']);
+        }
 
-        $project->update($validated);
+        $project = Project::find($id);
+        $project->update($validated + ['header_image_path' => $path]);
 
         return redirect('/admin/projects');
     }
