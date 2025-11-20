@@ -57,4 +57,11 @@ class Project extends Model
 
         return false;
     }
+
+    public function casts()
+    {
+        return [
+            'is_published' => 'bool'
+        ];
+    }
 }
