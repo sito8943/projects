@@ -9,7 +9,7 @@
             </li>
         @endforeach
     @else
-        <p>
+        <p class="text-xs italic text-gray-400">
             No tags
         </p>
     @endif
