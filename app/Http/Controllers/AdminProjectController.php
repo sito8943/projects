@@ -40,7 +40,7 @@ class AdminProjectController extends Controller
             unset($validated['header_image']);
         }
 
-        Project::create($validated + ['header_image_path' => $path]);
+        Project::create($validated);
 
         return redirect('/admin/projects');
     }

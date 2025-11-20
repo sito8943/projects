@@ -60,7 +60,7 @@
                     if (file) {
                         preview.src = URL.createObjectURL(file);
                     } else {
-                        preview.src = "{{ $project->header_image_path ?? '' }}";
+                        preview.src = "{{ $project->media->first()->getUrl()?? '' }}";
                     }
                 });
             </script>

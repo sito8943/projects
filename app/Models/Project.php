@@ -22,7 +22,6 @@ class Project extends Model implements HasMedia
      */
     protected $fillable = [
         'name',
-        'header_image_path',
         'leading',
         'content',
         'author_id',

@@ -1,6 +1,6 @@
 <x-project-layout title="Project details" :showSidebar="false">
     <div class="flex flex-col gap-10 items-start justify-start">
-        <img src="{{ $project->header_image_path }}" alt="{{ $project->name }}"
+        <img src="{{ $project->media->first()->getUrl()}}" alt="{{ $project->name }}"
             class="aspect-video w-full h-80 object-cover rounded-lg">
         <h3 class="font-bold text-2xl sm:text-3xl lg:text-4xl">{{ $project->name }}</h3>
         <x-author :author="$project->author" :date="$project->published_at"></x-author>
