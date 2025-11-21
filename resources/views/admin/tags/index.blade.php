@@ -1,4 +1,7 @@
 <x-app-layout title='Project Tags' action="/admin/tags/create" button="New Tag">
+
+    {{ $tags->links() }}
+
     <ul class="flex flex-wrap gap-4">
         @foreach ($tags as $tag)
             <li class="h-full">

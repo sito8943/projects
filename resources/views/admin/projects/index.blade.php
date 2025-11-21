@@ -1,4 +1,7 @@
 <x-app-layout title='All Projects' action="/admin/projects/create" button="New Project">
+
+    {{ $projects->links() }}
+
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         @foreach ($projects as $project)
             <li class="h-full">

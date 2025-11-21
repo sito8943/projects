@@ -10,7 +10,7 @@ class AdminProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::with('author', 'tags')->paginate(10);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -47,8 +47,8 @@ class AdminProjectController extends Controller
 
     public function edit(int $id)
     {
-        $project = Project::find($id);
-        $users = User::all();
+        $project = Project::with('author', 'tags', 'media')->find($id);
+        $users = User::with('media')->all();
         return view('admin.projects.edit', compact(['project', 'users']));
     }
 
