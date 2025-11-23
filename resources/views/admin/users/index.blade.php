@@ -9,9 +9,6 @@
             <li class="h-full">
                 <div class="bg-gray-200 transition rounded-lg h-full p-4 flex flex-col items-start justify-between gap-2">
                     <ul class="flex gap-4 items-center justify-end w-full">
-                        <a href="/admin/users/{{ $user->id }}" class="hover:text-red-400" title="View">
-                            <x-fas-eye class="w-4 h-4" />
-                        </a>
                         <a href="/admin/users/{{ $user->id }}/edit" class="hover:text-red-400" title="Edit">
                             <x-fas-edit class="w-4 h-4" />
                         </a>
@@ -23,9 +20,15 @@
                             </button>
                         </form>
                     </ul>
-                    <div class="flex flex-col items-start justify-start h-full w-full">
-                        <h3 class="font-bold text-lg">{{ $user->name }}</h3>
-                        <p class="text-sm text-gray-600">{{ $user->email }}</p>
+                    <div class="flex gap-4 items-start justify-start h-full w-full">
+                        @if ($user->media->first())
+                            <img src="{{ $user->media->first()->getUrl() }}" alt="Avatar"
+                                class="w-12 h-12 rounded-full object-cover mb-2 border border-gray-300" />
+                        @endif
+                        <div>
+                            <h3 class="font-bold text-lg">{{ $user->name }}</h3>
+                            <p class="text-sm text-gray-600">{{ $user->email }}</p>
+                        </div>
                     </div>
                 </div>
             </li>
