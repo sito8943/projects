@@ -21,8 +21,10 @@
                 </li>
                 @if (auth()->user() != null)
                     <li>
-                        <a href="/profile"> <img class="w-8 h-8 bg-gray-50 rounded-full" src="{{ auth()->user()->avatar_path }}"
-                                alt="{{ auth()->user()->name }}" /></a>
+                        <a href="/profile">
+                            <x-media-image :model="auth()->user()" class="w-8 h-8 bg-gray-50 rounded-full object-cover"
+                                :alt="auth()->user()->name" />
+                        </a>
                     </li>
                 @else
                     <li>
