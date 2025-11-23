@@ -10,14 +10,23 @@ class AdminProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::with('author', 'tags')->paginate(10);
+        $query = Project::with('author', 'tags');
+
+        $user = auth()->user();
+        if ($user && !$user->is_admin) {
+            $query->where('author_id', $user->id);
+        }
+
+        $projects = $query->paginate(10);
         return view('admin.projects.index', compact('projects'));
     }
 
     public function create()
     {
-
-        $users = User::all();
+        $authUser = auth()->user();
+        $users = ($authUser && $authUser->is_admin)
+            ? User::all()
+            : User::where('id', optional($authUser)->id)->get();
         return view('admin.projects.create', compact('users'));
     }
 
@@ -31,10 +40,13 @@ class AdminProjectController extends Controller
             'content' => ['nullable', 'string']
         ]);
 
-        // validated so it will be removed
-        unset($validated['header_image']);
+        $authUser = auth()->user();
+        if ($authUser && !$authUser->is_admin) {
+            $validated['author_id'] = $authUser->id;
+        }
 
-        $project = Project::create($validated);
+        // validated so it will be removed after media processed
+        $project = Project::create(collect($validated)->except('header_image')->toArray());
 
         if (
             $request->hasFile('header_image')
@@ -48,7 +60,14 @@ class AdminProjectController extends Controller
     public function edit(int $id)
     {
         $project = Project::with('author', 'tags', 'media')->find($id);
-        $users = User::with('media')->all();
+        $authUser = auth()->user();
+        if (!$project || !$project->canBeManagedBy($authUser)) {
+            abort(403);
+        }
+
+        $users = ($authUser && $authUser->is_admin)
+            ? User::with('media')->get()
+            : User::with('media')->where('id', $authUser->id)->get();
         return view('admin.projects.edit', compact(['project', 'users']));
     }
 
@@ -65,6 +84,10 @@ class AdminProjectController extends Controller
         ]);
 
         $project = Project::find($id);
+        $authUser = auth()->user();
+        if (!$project || !$project->canBeManagedBy($authUser)) {
+            abort(403);
+        }
 
         $removeHeader = $request->boolean('header_image_remove');
         if ($removeHeader) {
@@ -78,7 +101,12 @@ class AdminProjectController extends Controller
             $project->addMediaFromRequest('header_image')->toMediaCollection();
             unset($validated['header_image']);
         }
-        $project->update($validated);
+
+        if ($authUser && !$authUser->is_admin) {
+            $validated['author_id'] = $authUser->id;
+        }
+
+        $project->update(collect($validated)->except('header_image')->toArray());
 
         return redirect('/admin/projects');
     }
@@ -86,6 +114,10 @@ class AdminProjectController extends Controller
     public function destroy(int $id)
     {
         $project = Project::findOrFail($id);
+        $authUser = auth()->user();
+        if (!$project->canBeManagedBy($authUser)) {
+            abort(403);
+        }
         $project->delete();
 
         return redirect('/admin/projects');
