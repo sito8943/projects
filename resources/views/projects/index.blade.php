@@ -8,8 +8,8 @@
                 <article
                     class="h-full w-full flex flex-col gap-4 sm:gap-5 border border-slate-100 shadow-sm p-4 sm:p-6 lg:p-8 rounded-lg transition-shadow">
                     <a href="/projects/{{ $project->id }}" class="flex flex-col gap-3 sm:gap-4">
-                        <img src="{{ $project->media->first()->getUrl()}}" alt="{{ $project->name }}"
-                            class="aspect-video w-full object-cover rounded-lg">
+                        <x-project-image :project="$project" conversion="website"
+                            class="aspect-video w-full object-cover rounded-lg" />
                         <h3 class="font-bold text-2xl sm:text-3xl lg:text-4xl">
                             {{ $project->name }}
                         </h3>
