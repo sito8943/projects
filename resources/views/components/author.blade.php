@@ -1,5 +1,5 @@
 <div class="flex gap-4 items-center justify-start">
-    <img loading="lazy" src={{ $author->avatar_path }} alt={{ $author->name }} class="w-10 h-10 rounded-full bg-gray-400" />
+    <x-media-image :model="$author" class="w-10 h-10 rounded-full object-cover bg-gray-400" :alt="$author->name" />
     <div class="flex flex-col gap-1">
         <p class="text-sm">
             @if ($showLabel)

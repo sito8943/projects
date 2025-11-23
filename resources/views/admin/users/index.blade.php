@@ -21,10 +21,7 @@
                         </form>
                     </ul>
                     <div class="flex gap-4 items-start justify-start h-full w-full">
-                        @if ($user->media->first())
-                            <img src="{{ $user->media->first()->getUrl() }}" alt="Avatar"
-                                class="w-12 h-12 rounded-full object-cover mb-2 border border-gray-300" />
-                        @endif
+                        <x-media-image :model="$user" class="w-12 h-12 rounded-full object-cover mb-2 border border-gray-300" alt="Avatar" />
                         <div>
                             <h3 class="font-bold text-lg">{{ $user->name }}</h3>
                             <p class="text-sm text-gray-600">{{ $user->email }}</p>
