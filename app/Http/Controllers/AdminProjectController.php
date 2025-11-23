@@ -31,16 +31,16 @@ class AdminProjectController extends Controller
             'content' => ['nullable', 'string']
         ]);
 
-        $path = '';
+        // validated so it will be removed
+        unset($validated['header_image']);
+
+        $project = Project::create($validated);
 
         if (
             $request->hasFile('header_image')
         ) {
-            $path = $request->file('header_image')->store('projects', 'public');
-            unset($validated['header_image']);
+            $project->addMediaFromRequest('header_image')->toMediaCollection();
         }
-
-        Project::create($validated);
 
         return redirect('/admin/projects');
     }
