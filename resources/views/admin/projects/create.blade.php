@@ -21,31 +21,7 @@
         </div>
 
         <div class="w-full md:w-1/2">
-            <label>
-                <span>
-                    Header image (click to change)
-                </span>
-
-                <input class="invisible" id="header_image" type="file" name="header_image" />
-
-                <img class="object-cover w-full max-h-96 rounded-lg border border-gray-200 mt-2 hidden"
-                    id="header_image_preview" alt="Header image preview" />
-            </label>
-
-            <script>
-                document.getElementById('header_image').addEventListener('change', function (event) {
-                    const preview = document.getElementById('header_image_preview');
-                    const file = event.target.files[0];
-
-                    if (file) {
-                        preview.src = URL.createObjectURL(file);
-                        preview.classList.remove('hidden');
-                    } else {
-                        preview.src = '';
-                        preview.classList.add('hidden');
-                    }
-                });
-            </script>
+            <x-image-input name="header_image" id="header_image" label="Header image" />
         </div>
     </x-form>
 </x-app-layout>
