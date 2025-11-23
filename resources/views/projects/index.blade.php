@@ -1,8 +1,8 @@
 <x-site-layout :showSidebar="true" title="Proctique Discovery">
-
-    {{ $projects->links() }}
-
-    <ul class="grid gap-10">
+    <div class="w-full border-slate-100 border rounded pl-4 top-16 sticky bg-white">
+        {{ $projects->links() }}
+    </div>
+    <ul class="grid gap-10 mt-5">
         @foreach ($projects as $project)
             <li class="h-full">
                 <article

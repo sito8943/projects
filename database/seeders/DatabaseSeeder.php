@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
 
         Report::factory(10)->create();
         Review::factory(10)->create();
-        $projects = Project::factory(10)->create();
+        $projects = Project::factory(20)->create();
 
         // Associate Projects with Tags
         $projects->each(function ($project) {
