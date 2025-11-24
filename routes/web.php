@@ -9,10 +9,14 @@ use App\Http\Controllers\AdminProjectToggleIsPublishedController;
 use App\Http\Controllers\AdminUserController;
 
 Route::get('/', [WelcomeController::class, 'index']);
+
+// Projects (public)
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
-Route::resource('tags', TagController::class)->only(['index', 'show']);
+// Authors (public)
+Route::get('authors', [AuthorController::class, 'index'])->name('authors.index');
+Route::get('authors/{author}', [AuthorController::class, 'show'])->name('authors.show');
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
