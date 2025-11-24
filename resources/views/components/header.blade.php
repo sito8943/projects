@@ -49,20 +49,20 @@
         class="md:hidden mt-2 bg-white/80 backdrop-blur-sm rounded-2xl shadow border border-white/60 hidden">
         <ul class="px-3 py-2">
             <li>
-                <a href="/" class="block w-full rounded-xl px-4 py-2 text-red-500 hover:bg-red-50">Home</a>
+                <a href="/" class="block w-full rounded-3xl px-4 py-2 text-red-500 hover:bg-red-50">Home</a>
             </li>
             <li>
-                <a href="/projects" class="block w-full rounded-xl px-4 py-2 text-red-500 hover:bg-red-50">Projects</a>
+                <a href="/projects" class="block w-full rounded-3xl px-4 py-2 text-red-500 hover:bg-red-50">Projects</a>
             </li>
             <li>
-                <a href="/authors" class="block w-full rounded-xl px-4 py-2 text-red-500 hover:bg-red-50">Authors</a>
+                <a href="/authors" class="block w-full rounded-3xl px-4 py-2 text-red-500 hover:bg-red-50">Authors</a>
             </li>
             <li class="mt-1 flex gap-2">
                 <a href="/sign-in"
-                    class="flex-1 text-center rounded-xl px-4 py-2 text-red-500 border border-red-200 hover:bg-red-50">Sign
+                    class="flex-1 text-center rounded-3xl px-4 py-2 text-red-500 border border-red-200 hover:bg-red-50">Sign
                     in</a>
                 <a href="/sign-up"
-                    class="flex-1 text-center rounded-xl px-4 py-2 text-white bg-red-500 hover:bg-red-600">Sign
+                    class="flex-1 text-center rounded-3xl px-4 py-2 text-white bg-red-500 hover:bg-red-600">Sign
                     up</a>
             </li>
         </ul>
