@@ -8,7 +8,9 @@ class ProjectController extends Controller
 {
     function index()
     {
-        $projects = Project::with('author', 'tags', 'media')->paginate(10);
+        $projects = Project::with('author', 'tags', 'media')
+            ->where('is_published', true)
+            ->paginate(10);
         return view('projects.index', compact('projects'));
     }
 
