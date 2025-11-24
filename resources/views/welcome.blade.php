@@ -2,27 +2,19 @@
     <section id="hero" class="py-12 sm:py-16">
         <div class="flex flex-col-reverse md:flex-row items-center gap-8">
             <div class="flex-1">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-center">
                     Discover, review and share amazing projects
                 </h1>
-                <p class="mt-4 text-gray-600 text-base sm:text-lg">
+                <p class="mt-4 text-gray-600 text-base sm:text-lg text-center">
                     Explore community projects, find inspiration by tags and authors, and leave thoughtful reviews.
                 </p>
-                <div class="mt-6 flex gap-3">
+                <div class="mt-6 flex gap-3 justify-center">
                     <a href="/projects" class="rounded-3xl bg-red-500 text-white px-5 py-2.5 hover:bg-red-400">Explore
                         Projects</a>
                     <a href="/register"
                         class="rounded-3xl border border-red-200 text-red-600 px-5 py-2.5 hover:bg-red-50">Start
                         Posting</a>
                 </div>
-            </div>
-            <div class="flex-1 w-full">
-                @if ($mostRecentProject)
-                    <div class=" rounded-lg">
-                        <x-media-image :model="$mostRecentProject" conversion="website"
-                            class="aspect-video w-full object-cover rounded-lg" />
-                    </div>
-                @endif
             </div>
         </div>
     </section>
