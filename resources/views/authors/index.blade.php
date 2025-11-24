@@ -3,7 +3,7 @@
         {{ $authors->links() }}
     </div>
     <h2 class="font-semibold text-3xl text-gray-800 leading-tight mt-2">
-        {{ __('Authors') }}
+        Authors
     </h2>
     <ul class="grid gap-6 mt-5">
         @foreach ($authors as $author)
