@@ -19,6 +19,16 @@ class WelcomeController extends Controller
 
         $mostRecentProject = $recentProjects->shift();
 
-        return view('welcome', compact('mostRecentProject', 'recentProjects'));
+        $trendingProjects = Project::query()
+            ->select('id', 'author_id', 'leading', 'published_at', 'name')
+            ->with('author:id,name', 'tags', 'media')
+            ->withCount('reviews')
+            ->where('is_published', true)
+            ->orderByDesc('reviews_count')
+            ->latest('published_at')
+            ->take(6)
+            ->get();
+
+        return view('welcome', compact('mostRecentProject', 'recentProjects', 'trendingProjects'));
     }
 }
