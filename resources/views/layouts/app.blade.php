@@ -54,6 +54,7 @@
             {{ $slot }}
         </main>
     </div>
+    <x-to-top />
 </body>
 
 </html>

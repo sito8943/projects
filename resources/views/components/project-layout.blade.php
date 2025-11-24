@@ -36,6 +36,8 @@
     <x-footer>
 
     </x-footer>
+
+    <x-to-top />
 </body>
 
 </html>
