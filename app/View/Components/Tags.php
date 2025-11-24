@@ -8,14 +8,14 @@ use Illuminate\View\Component;
 
 class Tags extends Component
 {
-    
+
 
     /**
      * Create a new component instance.
      */
-    public function __construct(public iterable $tags = [], public string $orientation = "horizontal")
+    public function __construct(public iterable $tags = [], public bool $admin = false, public string $orientation = "horizontal")
     {
-        
+
     }
 
     /**

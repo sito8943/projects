@@ -38,7 +38,7 @@
                             <h4>
                                 Tags
                             </h4>
-                            <x-tags :tags="$project->tags" />
+                            <x-tags :tags="$project->tags" admin="{{ auth()->user()->is_admin }}" />
                         </div>
                     </div>
 
