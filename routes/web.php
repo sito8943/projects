@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\TagController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminTagController;
@@ -37,3 +37,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+    // Reviews (public create)
+    Route::post('projects/{project}/reviews', [ReviewController::class, 'store'])->name('projects.reviews.store');

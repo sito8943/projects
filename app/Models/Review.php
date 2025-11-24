@@ -10,10 +10,17 @@ class Review extends Model
     /** @use HasFactory<\Database\Factories\ReviewFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'comment',
+        'stars',
+        'author_id',
+        'project_id',
+    ];
+
     // Model relations
     public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 
     public function project()

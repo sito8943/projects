@@ -16,7 +16,7 @@ class ProjectController extends Controller
 
     function show(int $projectId)
     {
-        $project = Project::with(['author', 'tags', 'media'])
+        $project = Project::with(['author', 'tags', 'media', 'reviews.author'])
             ->findOrFail($projectId);
 
         $authorProjects = Project::with(['author', 'media'])

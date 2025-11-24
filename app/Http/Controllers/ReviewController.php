@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -25,9 +27,30 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, int $project)
     {
-        //
+        $project = Project::findOrFail($project);
+
+        // Only non-author users can review
+        if (auth()->id() === $project->author_id) {
+            abort(403, 'Authors cannot review their own projects.');
+        }
+
+        $validated = $request->validate([
+            'stars' => ['required', 'integer', 'min:1', 'max:5'],
+            'comment' => ['nullable', 'string', 'max:2000'],
+        ]);
+
+        Review::create([
+            'author_id' => auth()->id(),
+            'project_id' => $project->id,
+            'stars' => $validated['stars'],
+            'comment' => $validated['comment'] ?? null,
+        ]);
+
+        return redirect()->to(
+            route('projects.show', $project->id) . '#reviews'
+        )->with('status', 'Thanks for your review!');
     }
 
     /**
