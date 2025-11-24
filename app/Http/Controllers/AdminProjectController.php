@@ -80,8 +80,9 @@ class AdminProjectController extends Controller
             "leading" => ['nullable', 'string'],
             'content' => ['nullable', 'string'],
             "is_published" => ['nullable', 'boolean'],
-            "published_at" => ['nullable']
         ]);
+
+        $validated['is_published'] = $request->boolean('is_published');
 
         $project = Project::find($id);
         $authUser = auth()->user();
@@ -106,7 +107,7 @@ class AdminProjectController extends Controller
             $validated['author_id'] = $authUser->id;
         }
 
-        $project->update(collect($validated)->except('header_image')->toArray());
+        $project->update($validated);
 
         return redirect('/admin/projects');
     }
