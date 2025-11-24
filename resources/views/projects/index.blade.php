@@ -1,4 +1,4 @@
-<x-site-layout :showSidebar="true" title="Proctique Discovery">
+<x-site-layout :showSidebar="true" title="Discover Projects">
     <div class="w-full border-slate-100 border rounded pl-4 top-16 sticky bg-white">
         {{ $projects->links() }}
     </div>

@@ -1,6 +1,5 @@
 <?php
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -14,10 +13,6 @@ Route::get('/', [WelcomeController::class, 'index']);
 // Projects (public)
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
-
-// Authors (public)
-Route::get('authors', [AuthorController::class, 'index'])->name('authors.index');
-Route::get('authors/{author}', [AuthorController::class, 'show'])->name('authors.show');
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
@@ -37,5 +32,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-    // Reviews (public create)
-    Route::post('projects/{project}/reviews', [ReviewController::class, 'store'])->name('projects.reviews.store');
+// Reviews (public create)
+Route::post('projects/{project}/reviews', [ReviewController::class, 'store'])->name('projects.reviews.store');

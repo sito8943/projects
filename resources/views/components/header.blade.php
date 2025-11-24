@@ -13,11 +13,7 @@
                 </li>
                 <li>
                     <a href="/projects"
-                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Projects</a>
-                </li>
-                <li>
-                    <a href="/authors"
-                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Authors</a>
+                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Discover Projects</a>
                 </li>
                 @if (auth()->user() != null)
                     <li>
