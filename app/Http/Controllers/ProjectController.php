@@ -6,17 +6,18 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
-    function index()
+    public function index()
     {
         $projects = Project::query()
             ->select('id', 'author_id', 'leading', 'published_at', 'name')
             ->with('author:id,name', 'tags', 'media')
             ->where('is_published', true)
             ->paginate(10);
+
         return view('projects.index', compact('projects'));
     }
 
-    function show(int $projectId)
+    public function show(int $projectId)
     {
         $project = Project::query()
             ->with(['author:id,name', 'tags', 'media', 'reviews.author:id,name'])

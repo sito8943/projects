@@ -29,7 +29,7 @@ class AdminUserController extends Controller
             'is_admin' => ['nullable', 'boolean'],
         ]);
 
-        // validated so it will be removed
+        // after validated it will be removed
         unset($validated['avatar']);
 
         $user = User::create($validated);

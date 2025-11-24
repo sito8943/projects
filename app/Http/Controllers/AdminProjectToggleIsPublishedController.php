@@ -16,7 +16,6 @@ class AdminProjectToggleIsPublishedController extends Controller
 
         // TODO add logic to send publish email here
 
-
         return redirect()->back();
     }
 }

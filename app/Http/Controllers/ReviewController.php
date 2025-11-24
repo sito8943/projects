@@ -48,6 +48,7 @@ class ReviewController extends Controller
             'comment' => $validated['comment'] ?? null,
         ]);
 
+        // after redirect scroll to #reviews section to see alert
         return redirect()->to(
             route('projects.show', $project->id) . '#reviews'
         )->with('status', 'Thanks for your review!');
