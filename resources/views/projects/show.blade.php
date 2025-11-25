@@ -86,11 +86,11 @@
         </section>
 
         @if ($authorProjects->isNotEmpty())
-            <x-project-grid :projects="$authorProjects" :title="'Other projects from ' . $project->author->name" />
+            <x-project-grid :projects="$authorProjects" :title="'Also from ' . $project->author->name" />
         @endif
 
         @if ($tag && $tagProjects->isNotEmpty())
-            <x-project-grid :projects="$tagProjects" :title="'Other projects with the same ' . $tag->name" />
+            <x-project-grid :projects="$tagProjects" :title="'Similar projects'" show />
         @endif
     </div>
 </x-project-layout>
