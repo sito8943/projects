@@ -34,13 +34,12 @@ php artisan key:generate
 
 # Run migrations (with demo data)
 php artisan migrate --seed
-
-# Frontend assets
-npm install
-npm run build  # or: npm run dev
 ```
 
 ### Run the app
+
+*Note if you are using Laravel Herd (or something like it) you don't need to run the scripts below*
+
 ```bash
 # PHP server (default: http://127.0.0.1:8000)
 php artisan serve
