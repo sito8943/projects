@@ -27,6 +27,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        // Update basic info
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -34,6 +35,24 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
+
+        // Validate and handle avatar upload/removal
+        $request->validate([
+            'avatar' => ['nullable', 'image'],
+            'avatar_remove' => ['nullable', 'boolean'],
+        ]);
+
+        $user = $request->user();
+
+        if ($request->boolean('avatar_remove')) {
+            $user->media->each->delete();
+        }
+
+        if ($request->hasFile('avatar')) {
+            // Replace existing avatar with new upload
+            $user->media->each->delete();
+            $user->addMediaFromRequest('avatar')->toMediaCollection();
+        }
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
