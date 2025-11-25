@@ -9,7 +9,7 @@
             <li class="h-full">
                 <div class="bg-gray-200 transition rounded-lg h-full p-4 flex flex-col items-start justify-between gap-2">
                     <x-admin.actions class="w-full">
-                        <a href="/admin/users/{{ $user->id }}/edit" class="hover:text-red-400" title="Edit">
+                        <a href="{{ route('admin.users.edit', $user->id) }}/edit}}" class="hover:text-red-400" title="Edit">
                             <x-fas-edit class="w-4 h-4" />
                         </a>
                         <form method="POST" action="/admin/users/{{ $user->id }}" class="flex">
@@ -21,7 +21,8 @@
                         </form>
                     </x-admin.actions>
                     <div class="flex gap-4 items-start justify-start h-full w-full">
-                        <x-media-image :model="$user" class="w-12 h-12 rounded-full object-cover mb-2 border border-gray-300" alt="Avatar" />
+                        <x-media-image :model="$user"
+                            class="w-12 h-12 rounded-full object-cover mb-2 border border-gray-300" alt="Avatar" />
                         <div>
                             <h3 class="font-bold text-lg">{{ $user->name }}</h3>
                             <p class="text-sm text-gray-600">{{ $user->email }}</p>

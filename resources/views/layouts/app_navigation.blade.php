@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-breeze.application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
@@ -15,14 +15,15 @@
                     <x-breeze.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-breeze.nav-link>
-                    <x-breeze.nav-link href="/admin/projects" :active="str_contains(request()->route()->uri, 'admin/projects')">
+                    <x-breeze.nav-link href="{{ route('admin.projects.index') }}"
+                        :active="str_contains(request()->route()->uri, 'admin/projects')">
                         {{ __('Projects') }}
                     </x-breeze.nav-link>
                     @if (auth()->user()->is_admin)
-                        <x-breeze.nav-link href="/admin/tags" :active="str_contains(request()->route()->uri, 'admin/tags')">
+                        <x-breeze.nav-link href="{{ route('admin.tags.index') }}" :active="str_contains(request()->route()->uri, 'admin/tags')">
                             {{ __('Tags') }}
                         </x-breeze.nav-link>
-                        <x-breeze.nav-link href="/admin/users" :active="str_contains(request()->route()->uri, 'admin/users')">
+                        <x-breeze.nav-link href="{{ route('admin.users.index') }}" :active="str_contains(request()->route()->uri, 'admin/users')">
                             {{ __('Users') }}
                         </x-breeze.nav-link>
                     @endif
@@ -35,7 +36,8 @@
                     <x-slot name="trigger">
                         <button
                             class="inline-flex items-center gap-2 px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <x-media-image :model="Auth::user()" class="w-8 h-8 rounded-full object-cover border border-gray-300" alt="Avatar" />
+                            <x-media-image :model="Auth::user()"
+                                class="w-8 h-8 rounded-full object-cover border border-gray-300" alt="Avatar" />
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -50,7 +52,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-breeze.dropdown-link :href="route('profile.edit')">
+                        <x-breeze.dropdown-link :href="route('admin.profile.edit')">
                             {{ __('Profile') }}
                         </x-breeze.dropdown-link>
 
@@ -94,7 +96,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4 flex items-center gap-3">
-                <x-media-image :model="Auth::user()" class="w-10 h-10 rounded-full object-cover border border-gray-300" alt="Avatar" />
+                <x-media-image :model="Auth::user()" class="w-10 h-10 rounded-full object-cover border border-gray-300"
+                    alt="Avatar" />
                 <div>
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
@@ -102,7 +105,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-breeze.responsive-nav-link :href="route('profile.edit')">
+                <x-breeze.responsive-nav-link :href="route('admin.profile.edit')">
                     {{ __('Profile') }}
                 </x-breeze.responsive-nav-link>
 

@@ -9,7 +9,7 @@
             <li class="h-full">
                 <div class="bg-gray-200 transition rounded-lg h-full p-4 flex flex-col items-start justify-between gap-2">
                     <x-admin.actions class="w-full">
-                        <a href="/admin/projects/{{ $project->id }}/toggle-is-published" class="hover:text-red-400"
+                        <a href="{{ route('admin.project.publish', $project->id) }}" class="hover:text-red-400"
                             title="@if ($project->is_published) Unpublish @else Publish @endif">
                             @if ($project->is_published)
                                 <x-fas-eye-slash class="w-4 h-4" />
@@ -17,10 +17,10 @@
                                 <x-fas-eye class="w-4 h-4" />
                             @endif
                         </a>
-                        <a href="/admin/projects/{{ $project->id }}/edit" class="hover:text-red-400" title="Edit">
+                        <a href="{{ route('admin.projects.edit', $project->id) }}" class="hover:text-red-400" title="Edit">
                             <x-fas-edit class="w-4 h-4" />
                         </a>
-                        <form method="POST" action="/admin/projects/{{ $project->id }}" class="flex">
+                        <form method="POST" action="{{ route('admin.projects.destroy', $project->id) }}" class="flex">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="hover:text-red-400 cursor-pointer" title="Delete">

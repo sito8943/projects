@@ -8,23 +8,22 @@ use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\AdminProjectToggleIsPublishedController;
 use App\Http\Controllers\AdminUserController;
 
-Route::get('/', WelcomeController::class);
+Route::get('/', WelcomeController::class)->name('home');
 
 // Projects (public)
-Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
-Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+Route::resource('projects', ProjectController::class)->only(['index','show']);
 Route::post('projects/{project}/reviews', [ReviewController::class, 'store'])->name('projects.reviews.store');
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::resource('admin/tags', AdminTagController::class)->except(['show'])->middleware('is_admin');
-    Route::resource('admin/projects', AdminProjectController::class)->except(['show']);
-    Route::resource('admin/users', AdminUserController::class)->middleware('is_admin')->except(['show']);
+Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
+    Route::resource('projects', AdminProjectController::class)->except(['show']);
+    Route::resource('tags', AdminTagController::class)->except(['show'])->middleware('is_admin');
+    Route::resource('users', AdminUserController::class)->except(['show'])->middleware('is_admin');
 
-    Route::get('admin/projects/{project}/toggle-is-published', [AdminProjectToggleIsPublishedController::class, 'toggleIsPublished'])->name('project.toggleIsPublished');
+    Route::get('/projects/{project}/toggle-is-published', [AdminProjectToggleIsPublishedController::class, 'toggleIsPublished'])->name('project.publish');
 
 
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');

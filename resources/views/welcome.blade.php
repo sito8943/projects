@@ -9,9 +9,10 @@
                     Explore community projects, find inspiration by tags and authors, and leave thoughtful reviews.
                 </p>
                 <div class="mt-6 flex gap-3 justify-center">
-                    <a href="/projects" class="rounded-3xl bg-red-500 text-white px-5 py-2.5 hover:bg-red-400">Explore
+                    <a href="{{ route('projects.index') }}"
+                        class="rounded-3xl bg-red-500 text-white px-5 py-2.5 hover:bg-red-400">Explore
                         Projects</a>
-                    <a href="/register"
+                    <a href="{{ route('register') }}"
                         class="rounded-3xl border border-red-200 text-red-600 px-5 py-2.5 hover:bg-red-50">Start
                         Posting</a>
                 </div>
@@ -40,7 +41,7 @@
                 <p class="text-sm sm:text-base">
                     {{ $mostRecentProject->leading }}
                 </p>
-                <a href="/projects/{{ $mostRecentProject->id }}"
+                <a href="{{ route('projects.show', $mostRecentProject->id) }}"
                     class="rounded-3xl px-5 py-2 bg-red-500 text-white hover:bg-red-400 w-fit">Read</a>
             </div>
         </div>
@@ -55,7 +56,8 @@
             <h2 class="text-3xl sm:text-4xl font-extrabold">What are you waiting for?</h2>
             <p class="mt-3 text-gray-700">Create an account and start sharing your work with the community.</p>
             <div class="mt-6">
-                <a href="/register" class="rounded-3xl bg-red-500 text-white px-6 py-3 hover:bg-red-400">Join Now</a>
+                <a href="{{ route('register') }}"
+                    class="rounded-3xl bg-red-500 text-white px-6 py-3 hover:bg-red-400">Join Now</a>
             </div>
         </div>
     </section>

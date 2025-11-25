@@ -13,25 +13,26 @@
     <header
         class="bg-red-400/70 backdrop-blur-sm rounded-3xl m-auto w-full max-w-[1100px] px-4 py-2 flex items-center justify-between my-4 sticky top-2">
         <h1 class="text-xl poppins">
-            <a href="/" class="text-white">
+            <a href="{{ route('home') }}" class="text-white">
                 Proctique
             </a>
         </h1>
         <nav>
             <ul class="flex gap-2 items-center justify-end">
                 <li>
-                    <a href="/" class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
+                    <a href="{{ route('home') }}"
+                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="/projects"
+                    <a href="{{ route('admin.projects.index') }}"
                         class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
                         Projects
                     </a>
                 </li>
                 <li>
-                    <a href="/tags"
+                    <a href="{{ route('admin.tags.index') }}"
                         class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">
                         Tags
                     </a>
