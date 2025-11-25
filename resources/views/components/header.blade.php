@@ -13,7 +13,8 @@
                 </li>
                 <li>
                     <a href="/projects"
-                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Discover Projects</a>
+                        class="transition rounded-3xl px-4 py-1 text-white hover:text-red-400 hover:bg-white">Discover
+                        Projects</a>
                 </li>
                 @if (auth()->user() != null)
                     <li>
@@ -58,12 +59,10 @@
                 <a href="/authors" class="block w-full rounded-3xl px-4 py-2 text-red-500 hover:bg-red-50">Authors</a>
             </li>
             <li class="mt-1 flex gap-2">
-                <a href="/sign-in"
-                    class="flex-1 text-center rounded-3xl px-4 py-2 text-red-500 border border-red-200 hover:bg-red-50">Sign
-                    in</a>
-                <a href="/sign-up"
-                    class="flex-1 text-center rounded-3xl px-4 py-2 text-white bg-red-500 hover:bg-red-600">Sign
-                    up</a>
+                <a href="/login"
+                    class="flex-1 text-center rounded-3xl px-4 py-2 text-red-500 border border-red-200 hover:bg-red-50">Login</a>
+                <a href="/register"
+                    class="flex-1 text-center rounded-3xl px-4 py-2 text-white bg-red-500 hover:bg-red-600">Register</a>
             </li>
         </ul>
     </nav>
