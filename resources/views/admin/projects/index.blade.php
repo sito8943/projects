@@ -8,7 +8,7 @@
         @foreach ($projects as $project)
             <li class="h-full">
                 <div class="bg-gray-200 transition rounded-lg h-full p-4 flex flex-col items-start justify-between gap-2">
-                    <ul class="flex gap-4 items-center justify-end w-full">
+                    <x-admin.actions class="w-full">
                         <a href="/admin/projects/{{ $project->id }}/toggle-is-published" class="hover:text-red-400"
                             title="@if ($project->is_published) 'Unpublish' @else 'Publish' @endif">
                             @if ($project->is_published)
@@ -27,7 +27,7 @@
                                 <x-fas-trash class="w-4 h-4" />
                             </button>
                         </form>
-                    </ul>
+                    </x-admin.actions>
                     <div class="flex flex-col items-start justify-start h-full w-full">
                         <x-media-image :model="$project" conversion="website"
                             class="aspect-video w-full object-cover rounded-lg my-2" />

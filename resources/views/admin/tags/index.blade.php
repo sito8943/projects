@@ -9,7 +9,7 @@
                     <h3 class="font-bold text-xl">
                         {{ $tag->name }}
                     </h3>
-                    <ul class="flex gap-4 items-center justify-end">
+                    <x-admin.actions>
                         <a href="/admin/tags/{{ $tag->id }}/edit" class="hover:text-red-400">
                             <x-fas-edit class="w-4 h-4" />
                         </a>
@@ -20,7 +20,7 @@
                                 <x-fas-trash class="w-4 h-4" />
                             </button>
                         </form>
-                    </ul>
+                    </x-admin.actions>
                 </div>
             </li>
         @endforeach
