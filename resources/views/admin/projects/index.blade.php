@@ -10,11 +10,11 @@
                 <div class="bg-gray-200 transition rounded-lg h-full p-4 flex flex-col items-start justify-between gap-2">
                     <x-admin.actions class="w-full">
                         <a href="/admin/projects/{{ $project->id }}/toggle-is-published" class="hover:text-red-400"
-                            title="@if ($project->is_published) 'Unpublish' @else 'Publish' @endif">
+                            title="@if ($project->is_published) Unpublish @else Publish @endif">
                             @if ($project->is_published)
-                                <x-fas-close class="w-4 h-4" />
+                                <x-fas-eye-slash class="w-4 h-4" />
                             @else
-                                <x-fas-check class="w-4 h-4" />
+                                <x-fas-eye class="w-4 h-4" />
                             @endif
                         </a>
                         <a href="/admin/projects/{{ $project->id }}/edit" class="hover:text-red-400" title="Edit">
