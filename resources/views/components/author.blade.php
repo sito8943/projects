@@ -5,9 +5,9 @@
             @if ($showLabel)
                 Publish by
             @endif
-            <a href="/authors/{{ $author->id }}" class="transition text-red-400 hover:text-red-300">
+            <span class="transition">
                 {{ $author->name }}
-            </a>
+            </span>
         </p>
         <p class="text-xs"> {{ \Carbon\Carbon::parse($date)->format('F j') }}</p>
     </div>
