@@ -10,7 +10,7 @@ class AdminProjectController extends Controller
 {
     public function index()
     {
-        $query = Project::with('author', 'tags');
+        $query = Project::with('author', 'tags', 'media');
 
         $user = auth()->user();
         if ($user && !$user->is_admin) {
