@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('reason');
             $table->foreignId('author_id');
             $table->foreignId('review_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->tinyInteger('stars');
             $table->foreignId('author_id');
             $table->foreignId('project_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

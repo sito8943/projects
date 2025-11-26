@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -13,6 +14,7 @@ class Project extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
+    use SoftDeletes;
     use InteractsWithMedia;
 
     /**
@@ -25,7 +27,6 @@ class Project extends Model implements HasMedia
         'leading',
         'content',
         'author_id',
-        'is_published',
         'published_at',
     ];
 
@@ -65,7 +66,7 @@ class Project extends Model implements HasMedia
     public function casts()
     {
         return [
-            'is_published' => 'boolean'
+            'published_at' => 'datetime'
         ];
     }
 
