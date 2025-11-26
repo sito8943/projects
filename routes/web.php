@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminTagController;
 use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\AdminProjectToggleIsPublishedController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminReviewController;
 
 Route::get('/', WelcomeController::class)->name('home');
 
@@ -22,6 +23,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
     Route::resource('projects', AdminProjectController::class)->except(['show']);
     Route::resource('tags', AdminTagController::class)->except(['show'])->middleware('is_admin');
     Route::resource('users', AdminUserController::class)->except(['show'])->middleware('is_admin');
+    Route::resource('reviews', AdminReviewController::class)->except(['show', 'create'])->middleware('is_admin');
 
     Route::get('/projects/{project}/toggle-is-published', [AdminProjectToggleIsPublishedController::class, 'toggleIsPublished'])->name('project.publish');
 

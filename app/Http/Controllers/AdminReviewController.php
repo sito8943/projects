@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\Review;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminReviewController extends Controller
@@ -11,39 +14,19 @@ class AdminReviewController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $reviews = Review::with(['author:id,name', 'project:id,name'])
+            ->latest()
+            ->paginate(20);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('admin.reviews.index', compact('reviews'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function edit(Review $review)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return view('admin.reviews.edit', compact('review'));
     }
 
     /**
@@ -51,7 +34,15 @@ class AdminReviewController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'comment' => ['nullable', 'string'],
+            'stars' => ['required', 'integer', 'min:1', 'max:5'],
+        ]);
+
+        $review = Review::findOrFail($id);
+        $review->update($validated);
+
+        return redirect('/admin/reviews');
     }
 
     /**
@@ -59,6 +50,9 @@ class AdminReviewController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $review->delete();
+
+        return redirect('/admin/reviews');
     }
 }
