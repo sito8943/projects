@@ -14,6 +14,9 @@
                             {{ $project->name }}
                         </h3>
                     </a>
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <x-stars :for="$project" with-count />
+                    </div>
                     <x-author :date="$project->published_at" :author="$project->author"></x-author>
                     <x-tags :tags="$project->tags"></x-tags>
                     <p class="text-sm sm:text-base">
