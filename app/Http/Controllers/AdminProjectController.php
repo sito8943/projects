@@ -37,7 +37,6 @@ class AdminProjectController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'min:2', 'max:255'],
-            'author_id' => ['required', 'integer'],
             "header_image" => ['nullable', 'image'],
             "leading" => ['nullable', 'string'],
             'tags' => ['nullable'],
@@ -49,6 +48,8 @@ class AdminProjectController extends Controller
         // forcing author_id to auth user if is not an admin
         if ($authUser && !$authUser->is_admin) {
             $validated['author_id'] = $authUser->id;
+        } else {
+            $validated['author_id'] = $request->input('author_id');
         }
 
         // validated so it will be removed after media processed
@@ -90,7 +91,6 @@ class AdminProjectController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'min:2', 'max:255'],
-            'author_id' => ['required', 'integer'],
             "header_image" => ['nullable', 'image'],
             "leading" => ['nullable', 'string'],
             'content' => ['nullable', 'string'],
@@ -120,6 +120,8 @@ class AdminProjectController extends Controller
         // forcing author_id to auth user if is not an admin
         if ($authUser && !$authUser->is_admin) {
             $validated['author_id'] = $authUser->id;
+        } else {
+            $validated['author_id'] = $request->input('author_id');
         }
 
         if ($request->has('tags')) {
