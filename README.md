@@ -42,7 +42,7 @@ Please be a modern person, use Herd
 
 You can registe to be a normal User
 
-or use: User: admin, Password: admin for be the supowered user
+or use: User: admin@admin.com, Password: admin for be the supowered user
 
 ## Main Functionality
 - Authentication: user registration, login, email verification.
@@ -57,7 +57,7 @@ or use: User: admin, Password: admin for be the supowered user
 - Projects: authored by users, tagged, reviewed by others.
 - Tags: categorize projects (many‑to‑many with projects).
 - Reviews: comment + star rating on projects.
- 
+
 
 ---
 
