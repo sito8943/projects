@@ -6,16 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class SiteLayout extends Component
+class ProjectsIndexLayout extends Component
 {
-
-
     /**
      * Create a new component instance.
      */
     public function __construct(public string $title)
     {
-
+        // Sidebar is always shown in this layout
     }
 
     /**
@@ -23,6 +21,7 @@ class SiteLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.site-layout');
+        return view('components.projects-index-layout');
     }
 }
+
