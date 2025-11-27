@@ -8,7 +8,7 @@ class WelcomeController extends Controller
 {
     function __invoke()
     {
-        $recentProjects = cache()->remember('welcome_page_recent_projects', 3600, function () {
+        $recentProjects = cache()->remember('welcome_page_recent_projects', 0, function () {
             return Project::query()
                 ->select('id', 'author_id', 'leading', 'published_at', 'name', 'slug', 'reviews:stars')
                 ->with('author:id,name', 'tags', 'media')

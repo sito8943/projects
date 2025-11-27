@@ -17,11 +17,11 @@ class ProjectController extends Controller
         return view('projects.index', compact('projects'));
     }
 
-    public function show(string $projectSlug)
+    public function show(string $project)
     {
         $project = Project::query()
             ->with(['author:id,name', 'tags', 'media', 'reviews.author:id,name'])
-            ->where('slug', $projectSlug)
+            ->where('slug', $project)
             ->firstOrFail();
 
         $authorProjects = Project::query()

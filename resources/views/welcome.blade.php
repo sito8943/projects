@@ -44,7 +44,7 @@
                 <p class="text-sm sm:text-base">
                     {{ $mostRecentProject->leading }}
                 </p>
-                <a href="{{ route('projects.show', $mostRecentProject->id) }}"
+                <a href="{{ route('projects.show', $mostRecentProject->slug) }}"
                     class="rounded-3xl px-5 py-2 bg-blue-600 text-white hover:bg-blue-500 w-fit">Read</a>
             </div>
         </div>

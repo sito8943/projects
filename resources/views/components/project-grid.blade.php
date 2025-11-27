@@ -7,7 +7,7 @@
             @foreach ($projects as $project)
                 <li class="h-full">
                     <article class="h-full w-full flex flex-col gap-3 border border-slate-100 shadow-sm p-4 rounded-lg">
-                        <a href="{{ route('projects.show', $project->id) }}" class="flex flex-col gap-2">
+                        <a href="{{ route('projects.show', $project->slug) }}" class="flex flex-col gap-2">
                             <x-media-image :model="$project" conversion="preview"
                                 class="aspect-video w-full object-cover rounded-md" />
                             <h5 class="font-semibold text-lg line-clamp-2">{{ $project->name }}</h5>
