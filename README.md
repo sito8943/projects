@@ -40,6 +40,10 @@ php artisan migrate --seed
 
 Please be a modern person, use Herd
 
+You can registe to be a normal User
+
+or use: User: admin, Password: admin for be the supowered user
+
 ## Main Functionality
 - Authentication: user registration, login, email verification.
 - Project browsing: list projects and view project details.
