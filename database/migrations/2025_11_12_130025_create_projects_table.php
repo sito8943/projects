@@ -13,6 +13,8 @@ return new class extends Migration {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
+
             $table->text('leading')->nullable();
             $table->text('content')->nullable();
             $table->foreignId('author_id');

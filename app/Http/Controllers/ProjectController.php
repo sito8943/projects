@@ -9,7 +9,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::query()
-            ->select('id', 'author_id', 'leading', 'published_at', 'name')
+            ->select('id', 'author_id', 'leading', 'published_at', 'name', 'slug')
             ->with('author:id,name', 'author.media', 'tags', 'media', 'reviews')
             ->whereNotNull('published_at')
             ->paginate(10);
