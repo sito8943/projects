@@ -11,8 +11,7 @@
             <x-text-area-input name="content" id="content" label="Content" :value="old('content', '')"
                 placeholder="Longer content" :rows="10" />
 
-            <x-tag-input :values="[]"
-                :options="App\Models\Tag::orderBy('name')->pluck('name', 'id')->toArray()" />
+            <x-tag-input :values="[]" :options="App\Models\Tag::orderBy('name')->pluck('name', 'id')->toArray()" />
 
             @if (auth()->user()->is_admin)
                 <div class="flex gap-4 items-center justify-start">
