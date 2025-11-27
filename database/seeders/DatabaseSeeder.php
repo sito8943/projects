@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
+        User::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'is_admin' => true, 'password' => 'admin']);
 
         $tags = [
             ['name' => "Coding Tool", 'color' => "#4F46E5"],
