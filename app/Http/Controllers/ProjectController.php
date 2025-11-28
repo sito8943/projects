@@ -32,13 +32,13 @@ class ProjectController extends Controller
     public function show(string $project)
     {
         $project = Project::query()
-            ->with(['author:id,name', 'tags', 'media', 'reviews.author:id,name'])
+            ->with(['author:id,name', 'author.media', 'tags', 'media', 'reviews.author:id,name', 'reviews.author.media'])
             ->where('slug', $project)
             ->firstOrFail();
 
         $authorProjects = Project::query()
             ->select('id', 'author_id', 'leading', 'published_at', 'name', 'slug', 'reviews:stars')
-            ->with(['reviews', 'media'])
+            ->with(['reviews', 'media', 'author.media'])
             ->where('author_id', $project->author_id)
             ->whereNotNull('published_at')
             ->where('id', '!=', $project->id)
