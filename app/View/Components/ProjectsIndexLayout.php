@@ -4,16 +4,20 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
+
+use App\Models\Tag;
 
 class ProjectsIndexLayout extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $title)
+    public function __construct(public string $title, public Collection $tags)
     {
-        // Sidebar is always shown in this layout
+        $this->tags = Tag::query()
+            ->get();
     }
 
     /**

@@ -21,10 +21,9 @@
     <x-header>
 
     </x-header>
-
     <div
         class="flex flex-col md:flex-row items-start justify-start gap-5 h-full flex-1 mx-auto w-full max-w-screen-xl px-4 pb-6">
-        <x-sidebar>
+        <x-sidebar :tags="$tags">
 
         </x-sidebar>
 
@@ -37,7 +36,7 @@
             <!-- Mobile inline sidebar panel -->
             <div id="mobile-sidebar" class="md:hidden hidden mb-4">
                 <aside class="w-full bg-gray-100 rounded-lg p-3">
-                    <x-sidebar />
+                    <x-sidebar :tags="$tags" />
                 </aside>
             </div>
 
