@@ -40,7 +40,7 @@ class ProjectPublishNotification extends Notification
             ->subject('A new Project has been publish!')
             ->greeting('Hi!')
             ->line('<strong>' . $this->project->name . '</strong> has been publish by ' . $this->publisher->name . '!')
-            ->action("It's reading time!", url('http://projects/' . $this->project->id . ''))
+            ->action("It's reading time!", route('projects.show', $this->project->slug))
             ->line('Thanks to be part of the Proctique Community!');
     }
 
