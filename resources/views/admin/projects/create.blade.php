@@ -11,6 +11,9 @@
             <x-text-area-input name="content" id="content" label="Content" :value="old('content', '')"
                 placeholder="Longer content" :rows="10" />
 
+            <x-text-input type="url" name="github_repo_url" id="github_repo_url" label="GitHub Repository (optional)"
+                :value="old('github_repo_url', '')" placeholder="https://github.com/user/repo" />
+
             <x-tag-input :values="[]" :options="App\Models\Tag::orderBy('name')->pluck('name', 'id')->toArray()" />
 
             @if (auth()->user()->is_admin)

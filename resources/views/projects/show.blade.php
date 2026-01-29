@@ -28,6 +28,19 @@
         </div>
         <x-author :author="$project->author" :date="$project->published_at"></x-author>
         <x-tags :tags="$project->tags"></x-tags>
+        @if (!empty($project->github_url))
+            <div>
+                <a href="{{ $project->github_url }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-500 underline">
+                    View on GitHub
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                        <path fill-rule="evenodd"
+                            d="M12.293 2.293a1 1 0 011.414 0l4 4A1 1 0 0117 7h-3a1 1 0 110-2h.586L12 2.414a1 1 0 010-1.414zM3 5a2 2 0 012-2h5a1 1 0 110 2H5a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-5a1 1 0 112 0v5a3 3 0 01-3 3H5a3 3 0 01-3-3V5z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        @endif
         <p class="text-sm sm:text-base">
             {{ $project->content }}
         </p>
