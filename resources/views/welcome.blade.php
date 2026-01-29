@@ -34,7 +34,7 @@
         @if (!empty($mostRecentProject))
             <div class="flex flex-col lg:flex-row gap-6 md:gap-10 border border-slate-100 shadow-sm p-4 rounded-lg">
                 <x-media-image :model="$mostRecentProject" conversion="website"
-                    class="aspect-video max-lg:w-full w-3/5 object-cover rounded-lg" />
+                    class="aspect-video max-lg:w-full w-3/5 min-w-80 object-cover rounded-lg" />
                 <div class="flex flex-col gap-4">
                     <h3 class="font-bold text-2xl sm:text-3xl lg:text-4xl">
                         {{ $mostRecentProject->name }}
