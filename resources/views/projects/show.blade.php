@@ -23,24 +23,17 @@
     <div class="flex flex-col gap-10 items-start justify-start">
         <x-media-image :model="$project" conversion="website"
             class="aspect-video w-full h-80 object-cover rounded-lg" />
-        <div class="w-full flex items-start">
-            <h3 class="font-bold text-2xl sm:text-3xl lg:text-4xl flex-1">{{ $project->name }}</h3>
+        <div class="w-full flex items-center gap-4">
+            @if (!empty($project->github_url))
+                <a href="{{ $project->github_url }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-500">
+                    <x-fab-square-github class="w-10 h-10" />
+                </a>
+            @endif
+            <h3 class="font-bold text-2xl sm:text-3xl lg:text-4xl">{{ $project->name }}</h3>
         </div>
         <x-author :author="$project->author" :date="$project->published_at"></x-author>
         <x-tags :tags="$project->tags"></x-tags>
-        @if (!empty($project->github_url))
-            <div>
-                <a href="{{ $project->github_url }}" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-500 underline">
-                    View on GitHub
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                        <path fill-rule="evenodd"
-                            d="M12.293 2.293a1 1 0 011.414 0l4 4A1 1 0 0117 7h-3a1 1 0 110-2h.586L12 2.414a1 1 0 010-1.414zM3 5a2 2 0 012-2h5a1 1 0 110 2H5a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-5a1 1 0 112 0v5a3 3 0 01-3 3H5a3 3 0 01-3-3V5z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </div>
-        @endif
         <div class="text-sm sm:text-base space-y-3">
             {!! \App\Support\Markdown::render($project->content) !!}
         </div>

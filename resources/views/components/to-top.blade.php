@@ -1,11 +1,7 @@
 <div id="to-top" class="fixed bottom-4 right-4 z-50">
-    <button
-        type="button"
-        aria-label="Back to top"
+    <button type="button" aria-label="Back to top"
         class="scale-0 w-11 h-11 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 flex items-center justify-center transition">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-            <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l5 5a1 1 0 01-1.414 1.414L11 6.414V17a1 1 0 11-2 0V6.414L5.707 9.707A1 1 0 114.293 8.293l5-5A1 1 0 0110 3z" clip-rule="evenodd" />
-        </svg>
+        <x-fas-arrow-up class="w-5 h-5" />
     </button>
 </div>
 <script>
