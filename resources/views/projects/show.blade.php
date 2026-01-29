@@ -23,14 +23,20 @@
     <div class="flex flex-col gap-10 items-start justify-start">
         <x-media-image :model="$project" conversion="website"
             class="aspect-video w-full h-80 object-cover rounded-lg" />
-        <div class="w-full flex items-start">
-            <h3 class="font-bold text-2xl sm:text-3xl lg:text-4xl flex-1">{{ $project->name }}</h3>
+        <div class="w-full flex items-center gap-4">
+            @if (!empty($project->github_url))
+                <a href="{{ $project->github_url }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-500">
+                    <x-fab-square-github class="w-10 h-10" />
+                </a>
+            @endif
+            <h3 class="font-bold text-2xl sm:text-3xl lg:text-4xl">{{ $project->name }}</h3>
         </div>
         <x-author :author="$project->author" :date="$project->published_at"></x-author>
         <x-tags :tags="$project->tags"></x-tags>
-        <p class="text-sm sm:text-base">
-            {{ $project->content }}
-        </p>
+        <div class="text-sm sm:text-base space-y-3">
+            {!! \App\Support\Markdown::render($project->content) !!}
+        </div>
         <div class="w-full">
             <x-project-sponsor :project="$project" :sponsors="$sponsors" :active-purchase="$activePurchase" />
         </div>

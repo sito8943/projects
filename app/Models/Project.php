@@ -15,8 +15,9 @@ class Project extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
-    use SoftDeletes;
+
     use InteractsWithMedia;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -29,6 +30,9 @@ class Project extends Model implements HasMedia
         'content',
         'author_id',
         'published_at',
+        'github_owner',
+        'github_repo',
+        'github_url',
     ];
 
     // Model relations
@@ -67,7 +71,7 @@ class Project extends Model implements HasMedia
     public function casts()
     {
         return [
-            'published_at' => 'datetime'
+            'published_at' => 'datetime',
         ];
     }
 
@@ -93,11 +97,11 @@ class Project extends Model implements HasMedia
      */
     public function markAsDeleted(): void
     {
-        $suffix = '__deleted__' . $this->id;
+        $suffix = '__deleted__'.$this->id;
         $maxLen = 255; // default string length
         $currentSlug = $this->slug ?? Str::slug((string) $this->name);
         $base = substr($currentSlug, 0, max(0, $maxLen - strlen($suffix)));
-        $this->slug = $base . $suffix;
+        $this->slug = $base.$suffix;
         $this->save();
 
         // Soft delete the record

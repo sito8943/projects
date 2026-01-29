@@ -66,3 +66,22 @@ or use: User: admin@admin.com, Password: admin for be the supowered user
 ---
 
 Made with Laravel 12, Vite, Tailwind, and Breeze.
+
+## GitHub Integration
+
+Projects may include an optional GitHub repository URL (e.g. `https://github.com/user/repo`). When provided during creation:
+
+- The app attempts to fetch the repository README via GitHub REST API v3 and, if the project content is empty, auto-fills it with the README (raw Markdown).
+- The GitHub owner/repo/url are stored on the project and a “View on GitHub” link is shown on the public project page.
+- Failures (private repo, missing README, rate limits) are non‑blocking; the project is still created.
+
+Authentication (optional): set `GITHUB_TOKEN` in your environment to increase rate limits and avoid anonymous quotas.
+
+1. Edit your environment file:
+   - `.env` → add `GITHUB_TOKEN=your_token`
+   - Or update `.env.example` for team usage.
+2. The token is read via `config/services.php` as `config('services.github.token')`.
+
+Notes:
+- Only public repositories are supported for README fetching.
+- The README is truncated to the first ~5,000 characters.
