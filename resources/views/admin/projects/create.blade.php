@@ -11,8 +11,15 @@
             <x-text-area-input name="content" id="content" label="Content" :value="old('content', '')"
                 placeholder="Longer content" :rows="10" />
 
-            <x-text-input type="url" name="github_repo_url" id="github_repo_url" label="GitHub Repository (optional)"
-                :value="old('github_repo_url', '')" placeholder="https://github.com/user/repo" />
+            <div>
+                <x-text-input type="url" name="github_repo_url" id="github_repo_url"
+                    label="GitHub Repository (optional)" :value="old('github_repo_url', '')"
+                    placeholder="https://github.com/user/repo" />
+
+                <p class="mt-4 text-sm italic">
+                    Note: By adding a GitHub URL, the description will automatically fetch repository data such as stars and forks.
+                </p>
+            </div>
 
             <x-tag-input :values="[]" :options="App\Models\Tag::orderBy('name')->pluck('name', 'id')->toArray()" />
 
