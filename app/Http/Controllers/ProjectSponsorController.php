@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Project;
 
+use App\Models\Project;
 use App\Models\Purchase;
 use Mollie\Api\Http\Data\Money;
 use Mollie\Api\Http\Requests\CreatePaymentRequest;
@@ -26,18 +26,18 @@ class ProjectSponsorController extends Controller
         ]);
 
         $request = new CreatePaymentRequest(
-            description: 'Sponsoring project: ' . $project->title . ' by ' . $project->author->name,
-            amount: new Money('EUR', number_format($amount_cents/100, 2, '.', '')),
+            description: 'Sponsoring project: '.$project->name.' by '.$project->author->name,
+            amount: new Money('EUR', number_format($amount_cents / 100, 2, '.', '')),
             redirectUrl: route('projects.show', ['project' => $project->slug, 'purchase' => $purchase->id]),
             webhookUrl: $webhook_url,
             metadata: [
-                "order_id" => "# $purchase->id",
-                "project_id" => $project->id,
-                "customer_info" => [
+                'order_id' => "# $purchase->id",
+                'project_id' => $project->id,
+                'customer_info' => [
                     'user_id' => $user->id,
-                    "name" => $user->name,
-                    "email" => $user->email,
-                ]
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ],
             ]
         );
 
