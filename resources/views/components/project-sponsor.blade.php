@@ -1,7 +1,7 @@
 <section class="w-full flex ">
     <div
         class="rounded-3xl bg-blue-50 border border-blue-100 p-8 sm:p-12 text-center flex flex-col items-center justify-center w-full">
-        <h3 class="text-3xl sm:text-4xl font-extrabold">Don't be afraid Sponsor</h3>
+        <h3 class="text-3xl sm:text-4xl font-extrabold">Don't be afraid to be a sponsor</h3>
 
         <p class="mt-4">
             If you find this project useful, consider sponsoring it to support its development and maintenance.

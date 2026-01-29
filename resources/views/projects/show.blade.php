@@ -70,6 +70,7 @@
                 lastY = y;
                 ticking = false;
             };
+            requestAnimationFrame(handle);
             window.addEventListener('scroll', () => {
                 if (!ticking) {
                     requestAnimationFrame(handle);
