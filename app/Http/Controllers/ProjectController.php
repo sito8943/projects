@@ -117,6 +117,14 @@ class ProjectController extends Controller
             )
             ->get();
 
+        // If redirected back with a purchase, optimistically include that user
+        if ($activePurchase) {
+            $extraUser = User::query()->with('media')->find($activePurchase->user_id);
+            if ($extraUser && ! $sponsors->contains('id', $extraUser->id)) {
+                $sponsors->push($extraUser);
+            }
+        }
+
         return view('projects.show', compact('project', 'authorProjects', 'tagProjects', 'tag', 'activePurchase', 'projectHasAnyPurchase', 'sponsors'));
     }
 }
