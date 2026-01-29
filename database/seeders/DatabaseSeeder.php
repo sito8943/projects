@@ -3,15 +3,14 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Purchase;
 use App\Models\Review;
-use App\Models\User;
 use App\Models\Tag;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-
     /**
      * Seed the application's database.
      */
@@ -21,23 +20,31 @@ class DatabaseSeeder extends Seeder
         User::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'is_admin' => true, 'password' => 'admin']);
 
         $tags = [
-            ['name' => "Coding Tool", 'color' => "#4F46E5"],
-            ['name' => "Library", 'color' => "#0EA5E9"],
-            ['name' => "Framework", 'color' => "#10B981"],
-            ['name' => "Documentation", 'color' => "#F59E0B"],
-            ['name' => "Editor", 'color' => "#EC4899"],
-            ['name' => "Editor Extension", 'color' => "#8B5CF6"],
-            ['name' => "Browser Extension", 'color' => "#3B82F6"],
-            ['name' => "Productivity", 'color' => "#EF4444"],
+            ['name' => 'Coding Tool', 'color' => '#4F46E5'],
+            ['name' => 'Library', 'color' => '#0EA5E9'],
+            ['name' => 'Framework', 'color' => '#10B981'],
+            ['name' => 'Documentation', 'color' => '#F59E0B'],
+            ['name' => 'Editor', 'color' => '#EC4899'],
+            ['name' => 'Editor Extension', 'color' => '#8B5CF6'],
+            ['name' => 'Browser Extension', 'color' => '#3B82F6'],
+            ['name' => 'Productivity', 'color' => '#EF4444'],
         ];
 
         foreach ($tags as $tag) {
             Tag::create($tag);
         }
 
-
         Review::factory(10)->create();
         $projects = Project::factory(20)->create();
+
+        // Seed purchases for projects so sponsorship UI can be previewed
+        $projects->each(function (Project $project) {
+            // 0–3 purchases per project
+            $count = random_int(0, 3);
+            Purchase::factory($count)->create([
+                'project_id' => $project->id,
+            ]);
+        });
 
         // Associate Projects with Tags
         $projects->each(function ($project) {
