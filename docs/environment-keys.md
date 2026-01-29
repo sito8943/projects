@@ -103,6 +103,11 @@ Note: Example defaults are generally fine for local development. Adjust as neede
 
 -   VITE_APP_NAME: Name displayed in the frontend. Usually the same as `APP_NAME`.
 
+## GitHub (optional)
+
+-   GITHUB_TOKEN: Personal access token used for GitHub API requests to fetch repository READMEs during project creation and to increase rate limits.
+    How to get: create a GitHub personal access token. A classic token with `public_repo` scope or a fine‑grained token with read access to public repositories is sufficient. Leave empty to use unauthenticated requests (subject to stricter rate limits).
+
 ---
 
 Other project/feature-specific settings (optional)
