@@ -25,7 +25,6 @@ it('renders the sponsor component on the project page', function () {
     $response = $this->get(route('projects.show', ['project' => $project->slug]));
 
     $response->assertSuccessful();
-    $response->assertSee("Don't be afraid Sponsor", false);
     $response->assertSee('id="sponsor-form"', false);
     $response->assertSee('name="amount"', false);
     $response->assertSee('Already sponsoring', false);

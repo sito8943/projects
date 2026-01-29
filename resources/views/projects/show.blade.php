@@ -41,9 +41,9 @@
                 </a>
             </div>
         @endif
-        <p class="text-sm sm:text-base">
-            {{ $project->content }}
-        </p>
+        <div class="text-sm sm:text-base space-y-3">
+            {!! \App\Support\Markdown::render($project->content) !!}
+        </div>
         <div class="w-full">
             <x-project-sponsor :project="$project" :sponsors="$sponsors" :active-purchase="$activePurchase" />
         </div>
