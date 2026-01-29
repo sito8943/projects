@@ -25,21 +25,23 @@
     </nav>
 </header>
 <script>
-    const menuBtn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    if (menuBtn && menu) {
-        menuBtn.addEventListener('click', () => {
-            const isHidden = menu.classList.contains('hidden');
-            menu.classList.toggle('hidden');
-            menuBtn.setAttribute('aria-expanded', String(isHidden));
-        });
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        if (menuBtn && menu) {
+            menuBtn.addEventListener('click', () => {
+                const isHidden = menu.classList.contains('hidden');
+                menu.classList.toggle('hidden');
+                menuBtn.setAttribute('aria-expanded', String(isHidden));
+            });
+        }
 
-    const toggleSidebarBtn = document.getElementById('toggle-sidebar');
-    const mobileSidebar = document.getElementById('mobile-sidebar');
-    if (toggleSidebarBtn && mobileSidebar) {
-        toggleSidebarBtn.addEventListener('click', () => {
-            mobileSidebar.classList.toggle('hidden');
-        });
-    }
-</script>
+        const toggleSidebarBtn = document.getElementById('toggle-sidebar');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        if (toggleSidebarBtn && mobileSidebar) {
+            toggleSidebarBtn.addEventListener('click', () => {
+                mobileSidebar.classList.toggle('hidden');
+            });
+        }
+    });
+    </script>

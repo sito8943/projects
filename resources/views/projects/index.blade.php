@@ -1,5 +1,5 @@
 <x-projects-index-layout title="Discover Projects">
-    <div class="w-full border-slate-100 border rounded pl-4 top-16 sticky bg-white z-10">
+    <div class="w-full border-slate-100 border rounded md:pl-4 top-16 sticky bg-white z-10">
         {{ $projects->appends(request()->query())->links() }}
     </div>
     @if (!empty($activeTag))

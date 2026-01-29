@@ -13,9 +13,9 @@ class Sidebar extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public Collection $tags)
+    public function __construct(public Collection $tags, public bool $mobile = false)
     {
-        
+
     }
 
     /**

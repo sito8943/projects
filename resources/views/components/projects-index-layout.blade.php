@@ -29,15 +29,13 @@
 
         <main class="flex-1 w-full">
             <button type="button" id="toggle-sidebar"
-                class="md:hidden ml-auto rounded-xl px-3 py-1.5 text-sm font-medium text-blue-600 border border-blue-200 hover:bg-blue-50">
+                class="mb-4 md:hidden ml-auto rounded-xl px-3 py-1.5 text-sm font-medium text-blue-600 border border-blue-200 hover:bg-blue-50">
                 Filters
             </button>
 
             <!-- Mobile inline sidebar panel -->
             <div id="mobile-sidebar" class="md:hidden hidden mb-4">
-                <aside class="w-full bg-gray-100 rounded-lg p-3">
-                    <x-sidebar :tags="$tags" />
-                </aside>
+                <x-sidebar :tags="$tags" mobile="true" />
             </div>
 
             <section>
