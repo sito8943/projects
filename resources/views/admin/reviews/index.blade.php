@@ -22,8 +22,10 @@
                     </x-admin.actions>
                     <div class="flex flex-col items-start justify-start h-full w-full">
                         <x-stars :value="$review->stars" class="text-yellow-600" />
-                        <p class="mt-5 text-sm text-gray-600">by <strong>{{ $review->author->name }}</strong> on
-                            <strong>{{ $review->project->name }}</strong>
+                        <p class="mt-5 text-sm text-gray-600">by
+                            <strong>{{ $review->author?->name ?? 'Deleted user' }}</strong>
+                            on
+                            <strong>{{ $review->project?->name ?? 'Deleted project' }}</strong>
                         </p>
                         <p class="mt-2 text-gray-800 line-clamp-3">{{ $review->comment }}</p>
                     </div>
