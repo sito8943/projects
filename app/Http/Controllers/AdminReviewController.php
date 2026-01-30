@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,9 +13,16 @@ class AdminReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::with(['author:id,name', 'project:id,name'])
-            ->latest()
-            ->paginate(20);
+        $query = Review::query()
+            ->with(['author:id,name', 'project:id,name'])
+            ->latest();
+
+        // If the current user is not an admin, only show their own reviews
+        if (auth()->check() && auth()->user()->is_admin !== true) {
+            $query->where('author_id', auth()->id());
+        }
+
+        $reviews = $query->paginate(20);
 
         return view('admin.reviews.index', compact('reviews'));
     }
